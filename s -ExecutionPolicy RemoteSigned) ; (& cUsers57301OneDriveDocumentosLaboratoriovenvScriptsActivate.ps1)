@@ -1,0 +1,35 @@
+ .gitignore                                         |  11 [32m+[m[31m-[m
+ backend/app/__init__.py                            |   0
+ backend/app/config/__init__.py                     |   0
+ backend/app/config/db.py                           |  32 [32m+[m[31m-[m
+ backend/app/controller/__init__.py                 |   0
+ backend/app/controller/horario_controller.py       |  95 [31m-----[m
+ backend/app/controller/laboratorio_controller.py   |   7 [32m+[m[31m-[m
+ backend/app/controller/reserva_controller.py       |   8 [31m-[m
+ backend/app/main.py                                |  41 [32m+[m[31m-[m
+ backend/app/models/__init__.py                     |   4 [31m-[m
+ backend/app/models/base.py                         |   4 [31m-[m
+ backend/app/models/horario.py                      |  17 [31m-[m
+ backend/app/models/laboratorio.py                  |  34 [32m+[m[31m-[m
+ backend/app/models/reserva.py                      |  50 [31m---[m
+ backend/app/repositories/__init__.py               |   0
+ backend/app/repositories/horario_repository.py     |  95 [31m-----[m
+ backend/app/repositories/laboratorio_repository.py |  10 [32m+[m[31m-[m
+ backend/app/repositories/reserva_repository.py     |  14 [31m-[m
+ backend/app/schemas/__init__.py                    |   0
+ backend/app/schemas/horario_schema.py              |  78 [31m----[m
+ backend/app/schemas/laboratorio_schema.py          |   2 [32m+[m[31m-[m
+ backend/app/schemas/reserva_schema.py              |   1 [31m-[m
+ backend/app/security/__init__.py                   |   0
+ backend/app/security/dependencies.py               |  23 [31m--[m
+ backend/app/services/__init__.py                   |   0
+ backend/app/services/horario_service.py            |  91 [31m-----[m
+ backend/app/services/reserva_service.py            |   5 [31m-[m
+ backend/tests/test_horario_service.py              | 448 [31m---------------------[m
+ database/init_db.sql                               |  55 [31m---[m
+ docker-compose.yml                                 |  22 [32m+[m[31m-[m
+ docs/docs_reservas.md                              |  34 [31m--[m
+ docs/img/arquitectura.png                          | Bin [31m200387[m -> [32m0[m bytes
+ docs/img/er.png                                    | Bin [31m305906[m -> [32m0[m bytes
+ docs/img/flujo.png                                 | Bin [31m763724[m -> [32m0[m bytes
+ 34 files changed, 58 insertions(+), 1123 deletions(-)

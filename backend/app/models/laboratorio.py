@@ -5,7 +5,7 @@ from app.models.base import Base
 
 
 class Laboratorio(Base):
-    _tablename_ = "LABORATORIO"
+    __tablename__ = "LABORATORIO"
 
     laboratorio_id       = Column(Integer, primary_key=True, index=True)
     nombre               = Column(String(150), nullable=False)
@@ -23,7 +23,7 @@ class Laboratorio(Base):
 
 
 class RecursoLaboratorio(Base):
-    _tablename_ = "RECURSO_LABORATORIO"
+    __tablename__ = "RECURSO_LABORATORIO"
 
     recurso_id     = Column(Integer, primary_key=True, index=True)
     laboratorio_id = Column(Integer, ForeignKey("LABORATORIO.laboratorio_id"), nullable=False)
