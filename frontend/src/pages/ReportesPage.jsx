@@ -77,9 +77,9 @@ const ReportesPage = () => {
         </div>
 
         <div style={s.tabs}>
-          {TABS.map((t, i) => (
+          {TABS.map((t) => (
             <button
-              key={i}
+              key={t}
               style={{
                 ...s.tab,
                 ...(tab === i ? s.tabActive : {})
@@ -96,15 +96,16 @@ const ReportesPage = () => {
           {tab === 1 ? (
             <>
               <div>
-                <label style={s.label}>Mes</label>
+                <label htmlFor="reporte-mes" style={s.label}>Mes</label>
 
                 <select
+                  id="reporte-mes"
                   style={s.input}
                   value={mes}
                   onChange={e => setMes(Number(e.target.value))}
                 >
                   {MESES.map((m, i) => (
-                    <option key={i} value={i + 1}>
+                    <option key={m} value={i + 1}>
                       {m}
                     </option>
                   ))}
@@ -112,9 +113,10 @@ const ReportesPage = () => {
               </div>
 
               <div>
-                <label style={s.label}>Año</label>
+                <label htmlFor="reporte-anio" style={s.label}>Año</label>
 
                 <input
+                  id="reporte-anio"
                   style={s.input}
                   type="number"
                   value={anio}
@@ -127,9 +129,10 @@ const ReportesPage = () => {
           ) : (
             <>
               <div>
-                <label style={s.label}>Fecha desde</label>
+                <label htmlFor="reporte-desde" style={s.label}>Fecha desde</label>
 
                 <input
+                  id="reporte-desde"
                   style={s.input}
                   type="date"
                   value={fechaDesde}
@@ -138,9 +141,10 @@ const ReportesPage = () => {
               </div>
 
               <div>
-                <label style={s.label}>Fecha hasta</label>
+                <label htmlFor="reporte-hasta" style={s.label}>Fecha hasta</label>
 
                 <input
+                  id="reporte-hasta"
                   style={s.input}
                   type="date"
                   value={fechaHasta}
@@ -258,7 +262,7 @@ const ReportesPage = () => {
 
                 {datos.map((d, i) => (
 
-                  <tr key={i} style={s.tr}>
+                  <tr key={d.laboratorio_id ?? d.email ?? i} style={s.tr}>
 
                     {tab === 0 && (
                       <>

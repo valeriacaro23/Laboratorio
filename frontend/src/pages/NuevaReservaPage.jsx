@@ -78,8 +78,8 @@ const NuevaReservaPage = () => {
         {error && <div style={s.error}>{error}</div>}
  
         <div style={s.card}>
-          <label style={s.label}>Laboratorio</label>
-          <select style={s.input} value={labId} onChange={(e) => setLabId(e.target.value)}>
+          <label htmlFor="reserva-lab" style={s.label}>Laboratorio</label>
+          <select id="reserva-lab" style={s.input} value={labId} onChange={(e) => setLabId(e.target.value)}>
             <option value="">Seleccioná un laboratorio</option>
             {labs.map((l) => (
               <option key={l.laboratorio_id} value={l.laboratorio_id}>
@@ -90,8 +90,9 @@ const NuevaReservaPage = () => {
  
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
             <div>
-              <label style={s.label}>Fecha</label>
+              <label htmlFor="reserva-fecha" style={s.label}>Fecha</label>
               <input
+                id="reserva-fecha"
                 style={s.input}
                 type="date"
                 value={fecha}
@@ -100,8 +101,9 @@ const NuevaReservaPage = () => {
               />
             </div>
             <div>
-              <label style={s.label}>Curso / asignatura</label>
+              <label htmlFor="reserva-curso" style={s.label}>Curso / asignatura</label>
               <input
+                id="reserva-curso"
                 style={s.input}
                 type="text"
                 placeholder="Ej: Redes de computadores"

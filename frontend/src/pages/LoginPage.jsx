@@ -26,8 +26,9 @@ const LoginPage = () => {
         {error && <div style={s.error} data-testid="login-error">{error}</div>}
  
         <form onSubmit={handleSubmit}>
-          <label style={s.label}>Correo institucional</label>
+          <label htmlFor="login-email" style={s.label}>Correo institucional</label>
           <input
+            id="login-email"
             style={s.input}
             type="email"
             placeholder="usuario@universidad.edu"
@@ -35,8 +36,9 @@ const LoginPage = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <label style={s.label}>Contraseña</label>
+          <label htmlFor="login-pwd" style={s.label}>Contraseña</label>
           <input
+            id="login-pwd"
             style={s.input}
             type="password"
             placeholder="••••••••"

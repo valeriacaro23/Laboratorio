@@ -36,7 +36,7 @@ def test_hash_password_produce_hash_bcrypt_verificable():
     # Assert: el hash es diferente al texto plano
     assert hashed != plain
     # El hash comienza con el prefijo bcrypt
-    assert hashed.startswith("$2b$") or hashed.startswith("$2a$")
+    assert hashed.startswith(("$2b$", "$2a$"))
     # verify_password lo reconoce como válido
     assert verify_password(plain, hashed) is True
 

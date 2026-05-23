@@ -59,14 +59,13 @@ def actualizar_horario(db: Session, horario_id: int, datos: HorarioUpdate) -> Ho
     horario = _obtener_horario_o_404(db, horario_id)
     dias = {1:"Lunes", 2:"Martes", 3:"Miércoles",
             4:"Jueves", 5:"Viernes", 6:"Sábado", 7:"Domingo"}
-    if datos.dia_semana and datos.dia_semana != horario.dia_semana:
-        if horario_repo.existe_horario_mismo_dia(
-            db, horario.laboratorio_id, datos.dia_semana, excluir_id=horario_id
-        ):
-            raise HTTPException(
-                status_code=status.HTTP_409_CONFLICT,
-                detail=f"Ya existe un horario para el día {dias[datos.dia_semana]}"
-            )
+    if datos.dia_semana and datos.dia_semana != horario.dia_semana and horario_repo.existe_horario_mismo_dia(
+        db, horario.laboratorio_id, datos.dia_semana, excluir_id=horario_id
+    ):
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail=f"Ya existe un horario para el día {dias[datos.dia_semana]}"
+        )
     datos_actualizar = {k: v for k, v in datos.model_dump().items() if v is not None}
     return horario_repo.actualizar_horario(db, horario, datos_actualizar)
 
