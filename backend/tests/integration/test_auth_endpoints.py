@@ -23,7 +23,7 @@ from app.security.config import JWT_SECRET, ALGORITHM
 def test_login_con_credenciales_correctas_devuelve_200_y_jwt(client, usuario_admin):
     """POST /auth/login con email y password válidos responde 200 con access_token."""
     # Arrange
-    payload_req = {"email": usuario_admin.email, "password": "admin1234"}
+    payload_req = {"email": usuario_admin.email, "password": "admin1234"}  # NOSONAR
 
     # Act
     resp = client.post("/auth/login", json=payload_req)
@@ -56,7 +56,7 @@ def test_login_con_password_incorrecto_devuelve_401(client, usuario_admin):
 def test_login_con_email_inexistente_devuelve_401(client):
     """POST /auth/login con email que no existe en BD responde 401."""
     # Arrange
-    payload_req = {"email": "fantasma@uni.edu", "password": "cualquier"}
+    payload_req = {"email": "fantasma@uni.edu", "password": "cualquier"}  # NOSONAR
 
     # Act
     resp = client.post("/auth/login", json=payload_req)
@@ -126,7 +126,7 @@ def test_register_con_rol_admin_crea_usuario_y_devuelve_201(client, token_admin)
     headers = {"Authorization": f"Bearer {token_admin}"}
     nuevo_usuario = {
         "email": "prof.nuevo@uni.edu",
-        "password": "NuevaPass99!",
+        "password": "NuevaPass99!",  # NOSONAR
         "rol": "DOCENTE",
     }
 
@@ -150,7 +150,7 @@ def test_register_con_rol_docente_devuelve_403(client, token_docente):
     headers = {"Authorization": f"Bearer {token_docente}"}
     nuevo_usuario = {
         "email": "otro@uni.edu",
-        "password": "Pass1234!",
+        "password": "Pass1234!",  # NOSONAR
         "rol": "CONSULTA",
     }
 

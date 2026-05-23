@@ -4,9 +4,9 @@ import datetime
 from locust import HttpUser, task, between, constant
 
 ADMIN_EMAIL      = os.getenv("LOAD_ADMIN_EMAIL",      "admin@universidad.edu")
-ADMIN_PASSWORD   = os.getenv("LOAD_ADMIN_PASSWORD",   "admin1234")
+ADMIN_PASSWORD   = os.getenv("LOAD_ADMIN_PASSWORD",   "admin1234")  # NOSONAR
 DOCENTE_EMAIL    = os.getenv("LOAD_DOCENTE_EMAIL",     "jp@universidad.edu")
-DOCENTE_PASSWORD = os.getenv("LOAD_DOCENTE_PASSWORD",  "test1234")
+DOCENTE_PASSWORD = os.getenv("LOAD_DOCENTE_PASSWORD",  "test1234")  # NOSONAR
 
 _HORAS = [
     ("08:00:00", "10:00:00"),

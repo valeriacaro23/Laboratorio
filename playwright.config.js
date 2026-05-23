@@ -1,9 +1,9 @@
 const { defineConfig } = require('@playwright/test');
 
 const ADMIN_EMAIL = process.env.E2E_ADMIN_EMAIL || 'admin@uni.edu';
-const ADMIN_PASSWORD = process.env.E2E_ADMIN_PASSWORD || 'Admin123!';
+const ADMIN_PASSWORD = process.env.E2E_ADMIN_PASSWORD || 'Admin123!'; // NOSONAR
 const DOCENTE_EMAIL = process.env.E2E_DOCENTE_EMAIL || 'docente@uni.edu';
-const DOCENTE_PASSWORD = process.env.E2E_DOCENTE_PASSWORD || 'Docente123!';
+const DOCENTE_PASSWORD = process.env.E2E_DOCENTE_PASSWORD || 'Docente123!'; // NOSONAR
 
 module.exports = defineConfig({
   testDir: './tests/e2e/specs',

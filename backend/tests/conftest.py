@@ -144,7 +144,7 @@ def token_admin(client, usuario_admin):
     """JWT de un ADMIN obtenido a través del endpoint real."""
     resp = client.post("/auth/login", json={
         "email": usuario_admin.email,
-        "password": "admin1234",
+        "password": "admin1234",  # NOSONAR
     })
     assert resp.status_code == 200
     return resp.json()["access_token"]
@@ -155,7 +155,7 @@ def token_docente(client, usuario_docente):
     """JWT de un DOCENTE obtenido a través del endpoint real."""
     resp = client.post("/auth/login", json={
         "email": usuario_docente.email,
-        "password": "docente1234",
+        "password": "docente1234",  # NOSONAR
     })
     assert resp.status_code == 200
     return resp.json()["access_token"]

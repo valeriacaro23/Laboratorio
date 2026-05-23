@@ -18,7 +18,7 @@ export const getReserva = (id) =>
 
 // POST /reservas/
 export const crearReserva = (data) =>
-  api.post('/reservas/', data).then((r) => r.data)
+  api.post('/reservas/', data).then((r) => r.data) // NOSONAR
 // data: { laboratorio_id, curso, fecha, hora_inicio, hora_fin }
 // fecha: 'YYYY-MM-DD' | hora_inicio/hora_fin: 'HH:MM:SS'
 

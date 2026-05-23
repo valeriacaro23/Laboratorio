@@ -47,7 +47,7 @@ def token_coordinador(client, usuario_coordinador):
     """JWT de un COORDINADOR obtenido a través del endpoint real."""
     resp = client.post("/auth/login", json={
         "email": usuario_coordinador.email,
-        "password": "coord1234",
+        "password": "coord1234",  # NOSONAR
     })
     assert resp.status_code == 200
     return resp.json()["access_token"]

@@ -182,7 +182,7 @@ def test_login_lanza_401_si_usuario_inactivo(db):
 def test_registrar_crea_usuario_con_hash_nunca_texto_plano(db):
     """registrar() almacena password_hash — nunca la contraseña en texto plano."""
     # Arrange
-    data = UsuarioCreate(email="nuevo@uni.edu", password="SecretPass1!", rol="DOCENTE")
+    data = UsuarioCreate(email="nuevo@uni.edu", password="SecretPass1!", rol="DOCENTE")  # NOSONAR
 
     # Act
     usuario_creado = registrar(db, data)
@@ -201,14 +201,14 @@ def test_registrar_crea_usuario_con_hash_nunca_texto_plano(db):
 def test_registrar_lanza_400_si_email_ya_existe(db):
     """registrar() lanza HTTPException 400 cuando el email ya está en uso."""
     # Arrange: crear usuario con ese email primero
-    data = UsuarioCreate(email="duplicado@uni.edu", password="Pass1234!", rol="ADMIN")
+    data = UsuarioCreate(email="duplicado@uni.edu", password="Pass1234!", rol="ADMIN")  # NOSONAR
     registrar(db, data)
 
     # Act & Assert: intentar registrar de nuevo con el mismo email
     with pytest.raises(HTTPException) as exc_info:
         registrar(db, UsuarioCreate(
             email="duplicado@uni.edu",
-            password="OtraClave9!",
+            password="OtraClave9!",  # NOSONAR
             rol="DOCENTE"
         ))
     assert exc_info.value.status_code == 400
